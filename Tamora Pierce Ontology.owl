@@ -1,0 +1,376 @@
+Prefix(:=<http://www.semanticweb.org/lab/ontologies/2018/3/Tamora_Pierce#>)
+Prefix(owl:=<http://www.w3.org/2002/07/owl#>)
+Prefix(rdf:=<http://www.w3.org/1999/02/22-rdf-syntax-ns#>)
+Prefix(xml:=<http://www.w3.org/XML/1998/namespace>)
+Prefix(xsd:=<http://www.w3.org/2001/XMLSchema#>)
+Prefix(rdfs:=<http://www.w3.org/2000/01/rdf-schema#>)
+
+
+Ontology(<http://www.semanticweb.org/lab/ontologies/2018/3/Tamora_Pierce>
+
+Declaration(Class(:Audio_Book))
+Declaration(Class(:Author))
+Declaration(Class(:Battle_Magic))
+Declaration(Class(:Bloodhound))
+Declaration(Class(:Books))
+Declaration(Class(:Circle_Universe))
+Declaration(Class(:Circle_of_Magic))
+Declaration(Class(:Cold_Fire))
+Declaration(Class(:Emperor_Mage))
+Declaration(Class(:First_Test))
+Declaration(Class(:Formats))
+Declaration(Class(:In_the_Hand_of_the_Goddess))
+Declaration(Class(:Lady_Knight))
+Declaration(Class(:Lioness_Rampant))
+Declaration(Class(:Magic_Steps))
+Declaration(Class(:Mastiff))
+Declaration(Class(:Melting_Stones))
+Declaration(Class(:Page))
+Declaration(Class(:Person))
+Declaration(Class(:Protector_of_the_Small))
+Declaration(Class(:Publisher))
+Declaration(Class(:Shatterglass))
+Declaration(Class(:Song_of_the_Lioness))
+Declaration(Class(:Squire))
+Declaration(Class(:Street_Magic))
+Declaration(Class(:Tamora_Pierce))
+Declaration(Class(:Tempests_and_Slaughter))
+Declaration(Class(:Terrier))
+Declaration(Class(:The_Circle_Opens))
+Declaration(Class(:The_Circle_Reforged))
+Declaration(Class(:The_Immortals))
+Declaration(Class(:The_Numair_Chronicles))
+Declaration(Class(:The_Realms_of_the_Gods))
+Declaration(Class(:The_Will_of_the_Empress))
+Declaration(Class(:The_Woman_Who_Rides_Like_a_Man))
+Declaration(Class(:Tortall_Universe))
+Declaration(Class(:Tricksters))
+Declaration(Class(:Wild_Magic))
+Declaration(Class(:Wolf-Speaker))
+Declaration(Class(:Works))
+Declaration(Class(:_The_First_Adventure))
+Declaration(Class(:_a_Tortall_Legend))
+Declaration(Class(:s_Book))
+Declaration(Class(:s_Book))
+Declaration(Class(:s_Book))
+Declaration(Class(:_Schuster_Canada))
+Declaration(Class(:s_Choice))
+Declaration(Class(:s_Queen))
+Declaration(Class(:s_Book))
+Declaration(ObjectProperty(:available_in))
+Declaration(ObjectProperty(:published_by))
+Declaration(ObjectProperty(:set_in))
+Declaration(ObjectProperty(:shares_characters_with))
+Declaration(ObjectProperty(:written_by))
+
+############################
+#   Object Properties
+############################
+
+# Object Property: :available_in (:available_in)
+
+AnnotationAssertion(rdfs:comment :available_in "Formats besid print")
+FunctionalObjectProperty(:available_in)
+
+# Object Property: :published_by (:published_by)
+
+AnnotationAssertion(rdfs:comment :published_by "Who published the work")
+FunctionalObjectProperty(:published_by)
+
+# Object Property: :set_in (:set_in)
+
+AnnotationAssertion(rdfs:comment :set_in "What world is this set in")
+FunctionalObjectProperty(:set_in)
+
+# Object Property: :shares_characters_with (:shares_characters_with)
+
+AnnotationAssertion(rdfs:comment :shares_characters_with "What books does this share characers with")
+FunctionalObjectProperty(:shares_characters_with)
+
+# Object Property: :written_by (:written_by)
+
+AnnotationAssertion(rdfs:comment :written_by "who wrote this work")
+FunctionalObjectProperty(:written_by)
+
+
+
+############################
+#   Classes
+############################
+
+# Class: :Audio_Book (:Audio_Book)
+
+AnnotationAssertion(rdfs:comment :Audio_Book "book in audio form")
+SubClassOf(:Audio_Book :Formats)
+
+# Class: :Author (:Author)
+
+AnnotationAssertion(rdfs:comment :Author "Writer and creator of books")
+SubClassOf(:Author :Person)
+
+# Class: :Battle_Magic (:Battle_Magic)
+
+AnnotationAssertion(rdfs:comment :Battle_Magic "War takes a toll")
+SubClassOf(:Battle_Magic :The_Circle_Reforged)
+
+# Class: :Bloodhound (:Bloodhound)
+
+AnnotationAssertion(rdfs:comment :Bloodhound "Becca Cooper becoming a Provost's Guard or Dog")
+SubClassOf(:Bloodhound :_a_Tortall_Legend)
+
+# Class: :Books (:Books)
+
+AnnotationAssertion(rdfs:comment :Books "a written or printed work")
+SubClassOf(:Books :Works)
+
+# Class: :Circle_Universe (:Circle_Universe)
+
+AnnotationAssertion(rdfs:comment :Circle_Universe "Books set in Emelan and environs")
+SubClassOf(:Circle_Universe :Books)
+SubClassOf(:Circle_Universe ObjectSomeValuesFrom(:published_by :_Schuster_Canada))
+SubClassOf(:Circle_Universe ObjectSomeValuesFrom(:set_in :Circle_Universe))
+SubClassOf(:Circle_Universe ObjectSomeValuesFrom(:written_by :Tamora_Pierce))
+DisjointClasses(:Circle_Universe :Tortall_Universe)
+
+# Class: :Circle_of_Magic (:Circle_of_Magic)
+
+AnnotationAssertion(rdfs:comment :Circle_of_Magic "First series in Circle Universe")
+SubClassOf(:Circle_of_Magic :Circle_Universe)
+SubClassOf(:Circle_of_Magic ObjectSomeValuesFrom(:available_in :Audio_Book))
+SubClassOf(:Circle_of_Magic ObjectSomeValuesFrom(:shares_characters_with :Circle_Universe))
+
+# Class: :Cold_Fire (:Cold_Fire)
+
+AnnotationAssertion(rdfs:comment :Cold_Fire "Setting out to learn new things - Daja")
+SubClassOf(:Cold_Fire :The_Circle_Opens)
+
+# Class: :Emperor_Mage (:Emperor_Mage)
+
+AnnotationAssertion(rdfs:comment :Emperor_Mage "Daine and Numair revist Numair's past and try to end a war")
+SubClassOf(:Emperor_Mage :The_Immortals)
+
+# Class: :First_Test (:First_Test)
+
+AnnotationAssertion(rdfs:comment :First_Test "Kel has a test year and proves herself")
+SubClassOf(:First_Test :Protector_of_the_Small)
+
+# Class: :Formats (:Formats)
+
+AnnotationAssertion(rdfs:comment :Formats "Distrobution methods in addition to print")
+
+# Class: :In_the_Hand_of_the_Goddess (:In_the_Hand_of_the_Goddess)
+
+AnnotationAssertion(rdfs:comment :In_the_Hand_of_the_Goddess "Alanna as a Squire")
+SubClassOf(:In_the_Hand_of_the_Goddess :Song_of_the_Lioness)
+
+# Class: :Lady_Knight (:Lady_Knight)
+
+AnnotationAssertion(rdfs:comment :Lady_Knight "Kel's first command")
+SubClassOf(:Lady_Knight :Protector_of_the_Small)
+
+# Class: :Lioness_Rampant (:Lioness_Rampant)
+
+AnnotationAssertion(rdfs:comment :Lioness_Rampant "Alanna saves the Kingdome")
+SubClassOf(:Lioness_Rampant :Song_of_the_Lioness)
+
+# Class: :Magic_Steps (:Magic_Steps)
+
+AnnotationAssertion(rdfs:comment :Magic_Steps "Setting out to learn new things Sandry")
+SubClassOf(:Magic_Steps :The_Circle_Opens)
+SubClassOf(:Magic_Steps ObjectSomeValuesFrom(:available_in :Audio_Book))
+
+# Class: :Mastiff (:Mastiff)
+
+AnnotationAssertion(rdfs:comment :Mastiff "Becca Cooper moving up the ranks")
+SubClassOf(:Mastiff :_a_Tortall_Legend)
+
+# Class: :Melting_Stones (:Melting_Stones)
+
+AnnotationAssertion(rdfs:comment :Melting_Stones "Wild magic is everywhere")
+SubClassOf(:Melting_Stones :The_Circle_Reforged)
+
+# Class: :Page (:Page)
+
+AnnotationAssertion(rdfs:comment :Page "Kel as a Page")
+SubClassOf(:Page :Protector_of_the_Small)
+
+# Class: :Protector_of_the_Small (:Protector_of_the_Small)
+
+AnnotationAssertion(rdfs:comment :Protector_of_the_Small "The making of another of the great knights of Tortall")
+SubClassOf(:Protector_of_the_Small :Tortall_Universe)
+SubClassOf(:Protector_of_the_Small ObjectSomeValuesFrom(:available_in :Audio_Book))
+SubClassOf(:Protector_of_the_Small ObjectSomeValuesFrom(:set_in :Tortall_Universe))
+SubClassOf(:Protector_of_the_Small ObjectSomeValuesFrom(:shares_characters_with :The_Immortals))
+SubClassOf(:Protector_of_the_Small ObjectSomeValuesFrom(:written_by :Tamora_Pierce))
+
+# Class: :Publisher (:Publisher)
+
+AnnotationAssertion(rdfs:comment :Publisher "Company that produces and distributes books")
+
+# Class: :Shatterglass (:Shatterglass)
+
+AnnotationAssertion(rdfs:comment :Shatterglass "Setting out to learn new things -Tris")
+SubClassOf(:Shatterglass :The_Circle_Opens)
+
+# Class: :Song_of_the_Lioness (:Song_of_the_Lioness)
+
+AnnotationAssertion(rdfs:comment :Song_of_the_Lioness "Making of one of the great knights of Tortall")
+SubClassOf(:Song_of_the_Lioness :Tortall_Universe)
+SubClassOf(:Song_of_the_Lioness ObjectSomeValuesFrom(:available_in :Audio_Book))
+SubClassOf(:Song_of_the_Lioness ObjectSomeValuesFrom(:set_in :Tortall_Universe))
+SubClassOf(:Song_of_the_Lioness ObjectSomeValuesFrom(:shares_characters_with :_a_Tortall_Legend))
+SubClassOf(:Song_of_the_Lioness ObjectSomeValuesFrom(:written_by :Tamora_Pierce))
+
+# Class: :Squire (:Squire)
+
+AnnotationAssertion(rdfs:comment :Squire "Kel as a Squire")
+SubClassOf(:Squire :Protector_of_the_Small)
+
+# Class: :Street_Magic (:Street_Magic)
+
+AnnotationAssertion(rdfs:comment :Street_Magic "Setting out to learn new things - Briar")
+SubClassOf(:Street_Magic :The_Circle_Opens)
+SubClassOf(:Street_Magic ObjectSomeValuesFrom(:available_in :Audio_Book))
+
+# Class: :Tamora_Pierce (:Tamora_Pierce)
+
+AnnotationAssertion(rdfs:comment :Tamora_Pierce "The writer of the Tortall and Circle universes")
+SubClassOf(:Tamora_Pierce :Author)
+
+# Class: :Tempests_and_Slaughter (:Tempests_and_Slaughter)
+
+AnnotationAssertion(rdfs:comment :Tempests_and_Slaughter "Numair's backstory begins")
+SubClassOf(:Tempests_and_Slaughter :The_Numair_Chronicles)
+
+# Class: :Terrier (:Terrier)
+
+AnnotationAssertion(rdfs:comment :Terrier "Becca Cooper comming into her own")
+SubClassOf(:Terrier :_a_Tortall_Legend)
+
+# Class: :The_Circle_Opens (:The_Circle_Opens)
+
+AnnotationAssertion(rdfs:comment :The_Circle_Opens "Second series in Circle Universe")
+SubClassOf(:The_Circle_Opens :Circle_Universe)
+SubClassOf(:The_Circle_Opens ObjectSomeValuesFrom(:shares_characters_with :Circle_Universe))
+
+# Class: :The_Circle_Reforged (:The_Circle_Reforged)
+
+AnnotationAssertion(rdfs:comment :The_Circle_Reforged "Third Series in Circle Universe")
+SubClassOf(:The_Circle_Reforged :Circle_Universe)
+SubClassOf(:The_Circle_Reforged ObjectSomeValuesFrom(:available_in :Audio_Book))
+SubClassOf(:The_Circle_Reforged ObjectSomeValuesFrom(:shares_characters_with :Circle_Universe))
+
+# Class: :The_Immortals (:The_Immortals)
+
+AnnotationAssertion(rdfs:comment :The_Immortals "Story of the Immortal's War")
+SubClassOf(:The_Immortals :Tortall_Universe)
+SubClassOf(:The_Immortals ObjectSomeValuesFrom(:available_in :Audio_Book))
+SubClassOf(:The_Immortals ObjectSomeValuesFrom(:set_in :Tortall_Universe))
+SubClassOf(:The_Immortals ObjectSomeValuesFrom(:shares_characters_with :Song_of_the_Lioness))
+SubClassOf(:The_Immortals ObjectSomeValuesFrom(:written_by :Tamora_Pierce))
+
+# Class: :The_Numair_Chronicles (:The_Numair_Chronicles)
+
+AnnotationAssertion(rdfs:comment :The_Numair_Chronicles "Back Story of one of the Key characters from The Immortals")
+SubClassOf(:The_Numair_Chronicles :Tortall_Universe)
+SubClassOf(:The_Numair_Chronicles ObjectSomeValuesFrom(:available_in :Audio_Book))
+SubClassOf(:The_Numair_Chronicles ObjectSomeValuesFrom(:set_in :Tortall_Universe))
+SubClassOf(:The_Numair_Chronicles ObjectSomeValuesFrom(:shares_characters_with :The_Immortals))
+SubClassOf(:The_Numair_Chronicles ObjectSomeValuesFrom(:written_by :Tamora_Pierce))
+
+# Class: :The_Realms_of_the_Gods (:The_Realms_of_the_Gods)
+
+AnnotationAssertion(rdfs:comment :The_Realms_of_the_Gods "Dain and Numair travel through the realms of the Gods to end a war")
+SubClassOf(:The_Realms_of_the_Gods :The_Immortals)
+
+# Class: :The_Will_of_the_Empress (:The_Will_of_the_Empress)
+
+AnnotationAssertion(rdfs:comment :The_Will_of_the_Empress "Sometimes family is evil")
+SubClassOf(:The_Will_of_the_Empress :The_Circle_Reforged)
+
+# Class: :The_Woman_Who_Rides_Like_a_Man (:The_Woman_Who_Rides_Like_a_Man)
+
+AnnotationAssertion(rdfs:comment :The_Woman_Who_Rides_Like_a_Man "Alanna as a new knight")
+SubClassOf(:The_Woman_Who_Rides_Like_a_Man :Song_of_the_Lioness)
+
+# Class: :Tortall_Universe (:Tortall_Universe)
+
+AnnotationAssertion(rdfs:comment :Tortall_Universe "Books set in Tortall and environs")
+SubClassOf(:Tortall_Universe :Books)
+SubClassOf(:Tortall_Universe ObjectSomeValuesFrom(:published_by :_Schuster_Canada))
+SubClassOf(:Tortall_Universe ObjectSomeValuesFrom(:written_by :Tamora_Pierce))
+
+# Class: :Tricksters (:Tricksters)
+
+AnnotationAssertion(rdfs:comment :Tricksters "Overthrowing collonialism in the Copper Isles")
+SubClassOf(:Tricksters :Tortall_Universe)
+SubClassOf(:Tricksters ObjectSomeValuesFrom(:available_in :Audio_Book))
+SubClassOf(:Tricksters ObjectSomeValuesFrom(:set_in :Tortall_Universe))
+SubClassOf(:Tricksters ObjectSomeValuesFrom(:shares_characters_with :Song_of_the_Lioness))
+SubClassOf(:Tricksters ObjectSomeValuesFrom(:written_by :Tamora_Pierce))
+
+# Class: :Wild_Magic (:Wild_Magic)
+
+AnnotationAssertion(rdfs:comment :Wild_Magic "Dain finds friends and learns she has wild magic")
+SubClassOf(:Wild_Magic :The_Immortals)
+
+# Class: :Wolf-Speaker (:Wolf-Speaker)
+
+AnnotationAssertion(rdfs:comment :Wolf-Speaker "War ramps up")
+SubClassOf(:Wolf-Speaker :The_Immortals)
+
+# Class: :Works (:Works)
+
+AnnotationAssertion(rdfs:comment :Works "Things created")
+
+# Class: :_The_First_Adventure (:_The_First_Adventure)
+
+AnnotationAssertion(rdfs:comment :_The_First_Adventure "Alanna as a Paige")
+SubClassOf(:_The_First_Adventure :Song_of_the_Lioness)
+
+# Class: :_a_Tortall_Legend (:_a_Tortall_Legend)
+
+AnnotationAssertion(rdfs:comment :_a_Tortall_Legend "Set 200 years before Song of the Lioness")
+SubClassOf(:_a_Tortall_Legend :Tortall_Universe)
+SubClassOf(:_a_Tortall_Legend ObjectSomeValuesFrom(:available_in :Audio_Book))
+SubClassOf(:_a_Tortall_Legend ObjectSomeValuesFrom(:set_in :Tortall_Universe))
+SubClassOf(:_a_Tortall_Legend ObjectSomeValuesFrom(:shares_characters_with :Song_of_the_Lioness))
+SubClassOf(:_a_Tortall_Legend ObjectSomeValuesFrom(:written_by :Tamora_Pierce))
+
+# Class: :s_Book (:s_Book)
+
+AnnotationAssertion(rdfs:comment :s_Book "Setteling into the Circle - Briar")
+SubClassOf(:s_Book :Circle_of_Magic)
+
+# Class: :s_Book (:s_Book)
+
+AnnotationAssertion(rdfs:comment :s_Book "Setteling into the circle - Daja")
+SubClassOf(:s_Book :Circle_of_Magic)
+
+# Class: :s_Book (:s_Book)
+
+AnnotationAssertion(rdfs:comment :s_Book "Setteling into the circle - Sandry")
+SubClassOf(:s_Book :Circle_of_Magic)
+
+# Class: :_Schuster_Canada (:_Schuster_Canada)
+
+AnnotationAssertion(rdfs:comment :_Schuster_Canada "Publishes Tamora Pierce's books in Canada")
+SubClassOf(:_Schuster_Canada :Publisher)
+
+# Class: :s_Choice (:s_Choice)
+
+AnnotationAssertion(rdfs:comment :s_Choice "Alli goes to Copper Isles to assist Kypryoth")
+SubClassOf(:s_Choice :Tricksters)
+
+# Class: :s_Queen (:s_Queen)
+
+AnnotationAssertion(rdfs:comment :s_Queen "Collonial state overthrown")
+SubClassOf(:s_Queen :Tricksters)
+
+# Class: :s_Book (:s_Book)
+
+AnnotationAssertion(rdfs:comment :s_Book "Setteling into the circle - Tris")
+SubClassOf(:s_Book :Circle_of_Magic)
+
+
+)
